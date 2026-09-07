@@ -4,23 +4,30 @@ const int pinPulsador = 4;
 
 void setup() {
   Serial.begin(115200);
-  // TODO: Configurar los pines de los LEDs como OUTPUT
-  
-  // TODO: Configurar el pin del pulsador como INPUT
-  
+  // CHECK: Pines de los LEDs configurados como OUTPUT
+  pinMode(pinLedRojo, OUTPUT);
+  pinMode(pinLedVerde, OUTPUT);
+
+  // CHECK: Pin del pulsador configurado como INPUT
+  pinMode(pinPulsador, INPUT);
+
 }
 
 void loop() {
-  // TODO: Leer el estado del pulsador usando digitalRead
-  int estadoPulsador = 0; // Cambia esto
-  
+  // CHECK: Estado del pulsador leído mediante digitalRead
+  int estadoPulsador = digitalRead(pinPulsador);
+
   if (estadoPulsador == HIGH) {
-    // TODO: Encender LED Rojo y apagar LED Verde
-    
+    // CHECK: LED Rojo encendido y LED Verde apagado
+    digitalWrite(pinLedRojo, HIGH);
+    digitalWrite(pinLedVerde, LOW);
+
     Serial.println("Pulsador PRESIONADO: LED Rojo ENCENDIDO");
   } else {
-    // TODO: Apagar LED Rojo y encender LED Verde
-    
+    // CHECK: LED Rojo apagado y LED Verde encendido
+    digitalWrite(pinLedRojo, LOW);
+    digitalWrite(pinLedVerde, HIGH);
+
     Serial.println("Pulsador SOLTADO: LED Verde ENCENDIDO");
   }
   
