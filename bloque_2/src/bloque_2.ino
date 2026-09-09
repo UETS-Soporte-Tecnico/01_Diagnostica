@@ -4,6 +4,7 @@ void setup() {
   Serial.begin(115200);
 }
 
+
 void loop() {
   int lecturaADC = analogRead(pinPot);
   
